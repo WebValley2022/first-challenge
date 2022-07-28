@@ -37,10 +37,16 @@ csv_merged["Data"] = csv_merged["Data"] + "-" + csv_merged["Ora"].astype(str)
 
 
 # 6. Single DF is saved to the path in CSV format, without index column
-csv_merged.to_csv(save_path + 'APPA data merged.csv',
+csv_merged.to_csv(save_path + 'APPA_data_merged.csv',
                   index=False,
                   columns=[
                       "Stazione", "Inquinante", "Data", "Valore",
                       "Unità di misura"
                   ]
 )
+
+
+import zipfile
+zipfile.ZipFile("APPA_data_merged.zip", mode="w", compression=zipfile.ZIP_DEFLATED).write("APPA_data_merged.csv")
+
+
