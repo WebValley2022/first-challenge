@@ -1,4 +1,13 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 df = pd.read_csv("APPA data merged.csv")
-df = df.sort_values(by=["Stazione", "Inquinante", "Data", "Ora"])
+
+print(type(df["Data"][0]))
+
+"""
+plt.bar(df["Data"], df["Valore"])
+plt.title('Prova')
+plt.show()
+"""
+
