@@ -28,11 +28,13 @@ csv_merged = pd.concat(csv_list, ignore_index=True)
 # remove rows with not defined value
 csv_merged = csv_merged[csv_merged.Valore != "n.d."]
 
-csv_merged["Data"] = csv_merged["Data"] + "-" + csv_merged["Ora"].astype(str)
 
 # sorts the pandas DF by station, pollutant, date and hour
 csv_merged = csv_merged.sort_values(
-    by=["Stazione", "Inquinante", "Data"])
+    by=["Stazione", "Inquinante", "Data", "Ora"])
+
+csv_merged["Data"] = csv_merged["Data"] + "-" + csv_merged["Ora"].astype(str)
+
 
 # 6. Single DF is saved to the path in CSV format, without index column
 csv_merged.to_csv(save_path + 'APPA data merged.csv',
