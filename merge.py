@@ -52,7 +52,6 @@ csv_merged.to_csv(save_path + 'APPA_data_merged.csv',
                   ]
 )
 
-
 import zipfile
 zipfile.ZipFile("APPA_data_merged.zip", mode="w", compression=zipfile.ZIP_DEFLATED).write("APPA_data_merged.csv")
 print("fatto")
